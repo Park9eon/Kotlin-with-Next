@@ -1,5 +1,10 @@
 const path = require("path")
 const KotlinWebpackPlugin = require("@jetbrains/kotlin-webpack-plugin")
+const webpack = require("webpack")
+
+webpack.Compilation
+    .prototype
+    .fileTimestamps = new Map()
 
 module.exports = {
     webpack: (config, options) => {
@@ -22,9 +27,8 @@ module.exports = {
                 src: __dirname + "/src",
                 verbose: true,
                 librariesAutoLookup: true,
-                sourceMaps: false,
                 optimize: false,
-            })
+            }),
         )
 
         return config

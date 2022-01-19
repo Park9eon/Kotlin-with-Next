@@ -19,8 +19,10 @@
   "devDependencies": {
     "@jetbrains/gen-idea-libs": "^2.0.0",
     "@jetbrains/kotlin-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^5.5.0",
     "kotlin-compiler": "^1.6.10",
-    "react-scripts-kotlin": "^4.0.3"
+    "react-scripts-kotlin": "^4.0.3",
+    "webpack": "^5.66.0"
   },
   "scripts": {
     "gen-idea-libs": "react-scripts-kotlin gen-idea-libs",
