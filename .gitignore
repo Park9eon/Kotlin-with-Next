@@ -24,3 +24,6 @@ yarn-error.log*
 .idea
 .next
 kotlin_build
+
+public/sw*
+public/workbox*
