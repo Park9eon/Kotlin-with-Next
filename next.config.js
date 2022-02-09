@@ -46,6 +46,7 @@ module.exports = withPlugins([
     [withBundleAnalyzer],
     [withPWA, {
         pwa: {
+            dest: "public",
             runtimeCaching,
         },
     }]
