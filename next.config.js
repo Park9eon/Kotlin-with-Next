@@ -1,12 +1,19 @@
 const path = require("path")
-const KotlinWebpackPlugin = require("@jetbrains/kotlin-webpack-plugin")
 const webpack = require("webpack")
+const KotlinWebpackPlugin = require("@jetbrains/kotlin-webpack-plugin")
+
+const withPlugins = require("next-compose-plugins")
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+    enabled: process.env.ANALYZE === "true",
+})
+const withPWA = require("next-pwa")
+const runtimeCaching = require("next-pwa/cache")
 
 webpack.Compilation
     .prototype
     .fileTimestamps = new Map()
 
-module.exports = {
+const nextConfig = {
     webpack: (config, options) => {
         config.resolve
             .modules
@@ -34,3 +41,12 @@ module.exports = {
         return config
     },
 }
+
+module.exports = withPlugins([
+    [withBundleAnalyzer],
+    [withPWA, {
+        pwa: {
+            runtimeCaching,
+        },
+    }]
+], nextConfig)
